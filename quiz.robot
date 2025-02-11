@@ -5,7 +5,7 @@ Library  SeleniumLibrary
 ${BROWSER}  Chrome
 ${URL}  http://automationexercise.com
 ${NAME}  TestUser
-${EMAIL}  testuser45132@gmail.com
+${EMAIL}  testuser1354545452@gmail.com
 ${PASSWORD}  TestPassword123
 ${DOB_DAY}  1
 ${DOB_MONTH}  January
@@ -31,10 +31,10 @@ User Registration And Deletion
     Input Text  name=name  ${NAME}
     Input Text  xpath=//*[@id="form"]/div/div/div[3]/div/form/input[3]  ${EMAIL}
     Click Button  xpath=//button[contains(text(),'Signup')]
-    Wait Until Page Contains  ENTER ACCOUNT INFORMATION  timeout=10s
+    Wait Until Page Contains  Enter Account Information  timeout=10s
     Wait Until Element Is Visible  id=id_gender1  timeout=5s
-    Click Element  //*[@id="form"]/div/div/div/div[1]/form/div[1]/div[1]/label
-    Input Text  //*[@id="password"]  ${PASSWORD}
+    Click Element  xpath=//*[@id="uniform-id_gender1"]/span/input
+    Input Text  id=password  ${PASSWORD}
     Select From List By Label  id=days  ${DOB_DAY}
     Select From List By Label  id=months  ${DOB_MONTH}
     Select From List By Label  id=years  ${DOB_YEAR}
@@ -50,11 +50,11 @@ User Registration And Deletion
     Input Text  id=city  ${CITY}
     Input Text  id=zipcode  ${ZIPCODE}
     Input Text  id=mobile_number  ${MOBILE}
-    Click Button  id=submitAccount
-    Wait Until Page Contains  ACCOUNT CREATED!  timeout=10s
-    Click Button  xpath=//a[contains(text(),'Continue')]
+    Click Button  xpath=//*[@id="form"]/div/div/div/div[1]/form/button
+    Wait Until Page Contains  Account Created!  timeout=10s
+    Click Element  xpath=//*[@id="form"]/div/div/div/div/a
     Wait Until Page Contains  Logged in as  timeout=10s
-    Click Element  xpath=//a[contains(text(),'Delete Account')]
-    Wait Until Page Contains  ACCOUNT DELETED!  timeout=10s
-    Click Button  xpath=//a[contains(text(),'Continue')]
+    Click Element  xpath=//*[@id="header"]/div/div/div/div[2]/div/ul/li[5]/a
+    Wait Until Page Contains  Account Deleted!  timeout=10s
+    Click Element  xpath=//*[@id="form"]/div/div/div/div/a
     Close Browser
